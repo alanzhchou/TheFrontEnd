@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用循环将三个Div变色</title>
+</head>
+<style>
+    #container{
+        width: 360px;
+        height: 180px;
+        margin: 10px auto;
+        border: 3px dashed yellowgreen;
+        text-align: center;
+    }
+    #top{
+        margin: 10px auto;
+    }
+    .zhanshi{
+        width: 100px;
+        height: 100px;
+        background-color: greenyellow;
+        float: left;
+        margin: 10px 10px;
+        transition: all 0.1s;
+    }
+</style>
+
+<script>
+    window.onload = function(){
+        var change = document.getElementById('change');
+        var zhanshi = document.getElementsByClassName('zhanshi');
+
+        change.onclick = function(){
+            for(let i=0; i<zhanshi.length; i++){
+                if(zhanshi[i].style.backgroundColor === "greenyellow"){
+                    zhanshi[i].style.backgroundColor = "black";
+                }else{
+                    zhanshi[i].style.backgroundColor = "greenyellow";
+                }
+                
+            }
+        }
+    }
+</script>
+
+<body>
+    <div id="container">
+        <div id="top">
+            <button id="change">点击将DIV变色</button>   
+        </div>
+        <div id="buttom">
+            <div class="zhanshi"></div>
+            <div class="zhanshi"></div>
+            <div class="zhanshi"></div>
+        </div>
+    </div>    
+</body>
+</html>
