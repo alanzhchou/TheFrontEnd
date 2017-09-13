@@ -1,0 +1,13 @@
+﻿body{
+	background:whitesmoke;	
+}
+#nav{
+	background:gray;
+	border-color:#fff;	
+}
+#nav li{
+	border: 1px solid #ccc;
+}
+#nav li:hover{
+	background-color:#ccc; 
+}

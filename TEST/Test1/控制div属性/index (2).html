@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>控制div属性</title>
+    </head>
+    <style>
+        body{margin: 0 auto;text-align: center;}
+        #caozuo{margin-top: 10px;}
+        #zhanshi{width: 100px;height: 100px;background-color: #000000;margin: 10px auto;display: block;}
+    </style>
+<script>
+var changeStyle =  function(element,property,value)
+{
+    element.style[property] = value;
+};
+
+window.onload = function()
+{
+    var cbtn = document.getElementsByTagName('button');
+    var duixiang = document.getElementById('zhanshi');
+    var properties = ['width','height','background-color','display','display'];
+    var set = ['200px','200px','#029AE5','none','block'];
+
+    for(let i=0; i<cbtn.length; i++){
+        cbtn[i].index = i;
+        cbtn[i].onclick = function(){
+            if(this.index === cbtn.length - 1){
+                duixiang.style.cssText = "";
+            }
+            changeStyle(duixiang,properties[this.index],set[this.index]);
+        }
+    }
+};
+</script>
+<body>
+    <div id="container">
+        <div id="caozuo">
+            <button>变宽</button>
+            <button>变高</button>
+            <button>变色</button>
+            <button>隐藏</button>
+            <button>重置</button>
+        </div>
+        <div id="zhanshi"></div>
+    </div>
+</body>
+</html>

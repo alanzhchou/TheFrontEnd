@@ -1,0 +1,13 @@
+﻿body{
+	background:orange;	
+}
+#nav{
+	background:red;
+	border-color:#fff;	
+}
+#nav li{
+	border: 1px solid yellow;
+}
+#nav li:hover{
+	background-color:yellow; 
+}

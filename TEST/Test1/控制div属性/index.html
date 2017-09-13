@@ -26,8 +26,8 @@
             {
                 cbtn[i].index = i;
                 cbtn[i].onclick = function()
-                {
-                    this.index == cbtn.length - 1 && (duixiang.style.cssText = "");
+                {   
+                    (this.index == cbtn.length - 1) && (duixiang.style.cssText = "");
                     changeStyle(duixiang, properties[this.index], set[this.index]);
                 }
             }

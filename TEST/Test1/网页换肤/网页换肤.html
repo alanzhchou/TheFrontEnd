@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="green.css">
+</head>
+<style>
+    #skin{
+        height: 20px;
+        width: 500px;
+        border: 2px dotted black;
+        margin: 5px auto;
+    }
+    li{
+        list-style-type:none;
+        transition:all 0.2s;
+    }
+    ul{
+        list-style:none;
+        margin:0; padding:0;
+    } 
+    #skin li{
+        width: 10px;
+        height: 10px;
+        float: left;
+        margin: 3px 5px;
+    }
+    #skin li:hover{
+        display: block;
+	    transform:scale(1.15) rotate(360deg);
+	    -moz-transform:scale(1.15) rotate(360deg);
+    }
+    #red{
+        border: 3px double red;
+    }
+    #green{
+        border: 3px double green;
+    }
+    #black{
+        border: 3px double black;
+    }
+    .current{
+        background-color: wheat;
+    }
+    .current:hover{
+        background-color: white;
+    }
+    #nav{
+        height: 35px;
+        width: 502px;
+        margin: 1px auto;
+        text-align: center;
+    }
+    #nav li{
+        width: 80px;
+        float: left;
+        margin: 1px 1px;
+        line-height: 33px;
+    }
+</style>
+<script>
+    window.onload = function(){
+        var css = document.getElementsByTagName('link')[0];
+        var skin = document.getElementById('skin').getElementsByTagName('li');
+
+        for(let i=0; i<skin.length; i++){
+            skin[i].onclick = function(){
+                for(let p in skin)
+                {
+                    skin[p].className = "";
+                }
+                this.className = "current";
+                css['href'] = this.id + ".css";
+            }
+        }
+    }
+</script>
+
+<body>
+    <div id="container">
+        <div id="skin">
+            <ul>
+                <li id="red" title="红色皮肤"></li>
+                <li id="green" class="current" title="绿色皮肤"></li>
+                <li id="black" title="黑色皮肤"></li>
+            </ul>
+        </div>
+        <div id="nav">
+            <ul>
+                <li><a href="">新闻</a></li>
+                <li><a href="">娱乐</a></li>
+                <li><a href="">体育</a></li>
+                <li><a href="">电影</a></li>
+                <li><a href="">音乐</a></li>
+                <li><a href="">旅游</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

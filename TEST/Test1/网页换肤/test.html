@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #caozuo{
+        background-color: white;
+        margin: 10px auto;
+    }
+    ul{
+        height: 25px;
+        border:1px solid grey;
+        text-align: center;
+    }
+    #caozuo li{
+        width: 100px;
+        float: left;
+    }
+
+    #test{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin: 10px auto;
+    }
+</style>
+<script>
+    window.onload = function(){
+        var green = document.getElementsByTagName('li')[0];
+        var blue = document.getElementsByTagName('li')[1];
+        var test = document.getElementById('test');
+
+        if(!green || !blue){alert('select error');}
+
+        green.onclick = function(){
+            test.style.backgroundColor = green.innerText;
+        }
+
+        blue.onclick = function(){
+            test.style.backgroundColor = blue.innerText;
+        }
+    }
+</script>
+
+<body>
+    <div id="caozuo">
+        <ul>
+            <li>
+                green
+            </li>
+            <li>
+                blue
+            </li>
+        </ul>
+    </div>
+    <div id="test">
+    </div>
+</body>
+</html>
