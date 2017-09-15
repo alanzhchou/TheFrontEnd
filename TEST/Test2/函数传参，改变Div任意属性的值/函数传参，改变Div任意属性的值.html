@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数传参，改变Div任意属性的值</title>
+</head>
+
+<style>
+    #container{
+        width: 250px;
+        height: 200px;
+        margin: 10px auto;
+        border: 2px dashed palegreen;
+        padding: 20px;
+        font-size: 12px;
+    }
+
+    input{
+        margin-bottom: 10px;
+        border: 2px solid paleturquoise;
+    }
+
+    input:hover{
+        border: 2px solid palegreen;
+        box-shadow: 2px 2px 3px palegreen;
+    }
+
+    #button{
+        margin-left: 50px;
+        margin-bottom: 10px;
+    }
+    button{
+        margin-right: 20px;
+    }
+
+    #show{
+        width: 100px;
+        height: 100px;
+        margin: 10px 60px;
+        padding: 5px;
+        background-color: palegreen;
+        box-shadow: 2px 2px 3px paleturquoise;
+        border-radius: 10px;
+        transition: all 0.8s;
+    }
+
+    #show:hover{
+        transform: scale(1.1) rotate(360deg);
+    }
+</style>
+
+<script>
+    function change(elem,prop,value){
+        elem.style[prop] = value;
+    }
+
+    window.onload = function(){
+        var prop = document.getElementById('prop');
+        var value = document.getElementById('value');
+        var show = document.getElementById('show');
+        var confirm = document.getElementById('confirm');
+        var reset = document.getElementById('reset');
+
+        confirm.onclick = function(){
+            change(show,prop.value,value.value);
+        }
+
+        reset.onclick = function(){
+            show.removeAttribute("style");
+            //show.style.cssText = "";
+            
+        }
+    }
+</script>
+
+<body>
+    <div id="container">
+        <div id="caozuo">
+            <label for="prop">属性名：<input type="text" id="prop"></label><br>
+            <label for="value">属性值：<input type="text" id="value"></label><br>
+
+            <div id="button">
+                <button id="confirm">确定</button><button id="reset">重置</button>
+            </div>
+        </div>
+            
+        <div id="show">
+            在上方输入框输入“属性名”及“属性值”，点击确定按钮查看效果。
+        </div>
+    </div>
+</body>
+</html>
