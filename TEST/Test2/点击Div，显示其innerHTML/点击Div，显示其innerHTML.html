@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点击Div，显示其innerHTML</title>
+</head>
+<style>
+    #container{
+        width: 900px;
+        margin: 15px auto;
+        padding: 10px;
+        padding-top: 0px;
+        border: 2px  dashed paleturquoise
+    }
+    .news{
+        margin: 20px 5px;
+        border-bottom:2px solid palegreen; 
+    }
+</style>
+
+<script>
+    window.onload = function(){
+        var news = document.getElementsByClassName('news');
+
+        for(let i in news){
+            news[i].onclick = function(){
+                alert(this.innerHTML);
+            }
+        }
+    }
+</script>
+
+<body>
+    <div id="container">
+        <div class="news">
+            <strong>北京某小学生</strong>，在首次自慰后发现可以喷射白色液体，
+            <strong>以为自己是蜘蛛侠</strong>，从六楼跳下，抢救无效死亡
+        </div>
+        <div class="news">
+            河北保定女壮士逆袭，早强奸后<strong>反骑坐坏男方肾脏</strong>.
+        </div>
+        <div class="news">
+            经过市民举报，说按摩会所里有非法的交易，警察破门而入，当场抓住正在交易的男女，
+            让警察都感到无奈的是，这里有一位<strong>日本女子</strong>，穿着日本和服，当警察审讯男子的时候，
+            他表示，<strong>我听说这里有日本女孩就来了，我是帮着国人在报仇，曾经怎么对待我们中国
+            女子，我就怎么对待她的</strong>。
+        </div>
+        <div class="news">
+            日本新闻，一男子在小学操场公开露出下体部位被逮捕，以下是记者采访受惊吓的小学生的反应<br>
+            小学生A："<strong>滑溜溜的</strong>";<br>
+            小学生A："<strong>湿漉漉的</strong>";<br>
+            小学生A："<strong>好大</strong>"<br>
+            ......
+        </div>
+        <div class="news">
+            "宝马女"被追尾叫男友到现场撑腰，肇事女惊呆:"<strong>我老公</strong>" <br>
+            三人打成一团，<strong>男子称是家事回去自行解决</strong>。
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百度输入法</title>
+</head>
+<style>
+    #container{
+        width: 200px;
+        height: 150px;
+        margin: 10px auto;
+        padding-left: 90px;
+        padding-top: 20px;
+        border: 2px dashed #98fb98;
+    }
+    ul{
+        width: 57px;
+        margin:0px;
+        margin-top: 10px;
+        padding:0px;
+        list-style-type: none;
+        border: 2px double rgb(17, 175, 199);
+        display: none;
+    }
+    ul li{
+        padding:5px;
+        font-size: 14px;
+    }
+    ul li:hover{
+        background-color: rgb(192, 245, 235);
+        transition: all 0.8s;
+    }
+    #close{
+        border-top: 2px double rgb(17, 175, 199);
+    }
+</style>
+
+<script>
+    window.onload = function (){
+        var input = document.getElementById('input');
+        var select = document.getElementById('select');
+        var close = document.getElementById('close');
+
+        input.onclick = function(){
+            if(select.style.display === "block"){
+                select.style.display = "none";
+            }else{
+                select.style.display = "block";
+            }
+        }
+
+        close.onclick = function(){
+            select.style.display = "none";
+        }
+    }
+</script>
+
+
+<body>
+    <div id="container">
+        <button id="input">输入法</button>
+        <ul id="select">
+            <li><a href="javascript:;">手写</a></li>
+            <li><a href="javascript:;">拼音</a></li>
+            <li id="close"><a href="javascript:;">关闭</a></li>
+        </ul>       
+    </div>
+</body>
+</html>

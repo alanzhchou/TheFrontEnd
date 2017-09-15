@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>求出数组中所有数字的和</title>
+</head>
+
+<style>
+    #container{
+        width: 300px;
+        margin: 10px auto;
+        padding: 10px;
+        border: 5px dashed paleturquoise;
+    }
+
+    label{
+        font-size: 12px;
+        box-shadow: 1px 1px 2px palegreen;
+    }
+
+    #array{
+        width: 300px;
+        margin-bottom: 5px;
+        border: 2px solid rgb(219, 219, 238);
+        text-indent: 1ch;
+    }
+
+    #array:hover{
+        border: 2px solid palegreen;
+        box-shadow: 1px 1px 2px palegreen;
+    }
+
+    button{
+        margin-top: 10px;
+        margin-left: 40%;
+    }
+    div div{
+        width: 45px;
+        margin-top: 5px;
+        margin-left: 40%; 
+        border: 2px solid tan;
+        text-indent: 0.5ch;
+    }
+</style>
+
+<script>
+    window.onload = function(){
+        var array = document.getElementById('array');
+        var cal = document.getElementsByTagName('button')[0];
+        var sumdiv =document.getElementById('sum');
+
+        array.onkeyup = function(){
+            this.value = this.value.replace(/[^(\d)|(,)]/,"");
+        }
+
+        cal.onclick = function(){
+            let sum = 0;
+            let elements = array.value.split(',');
+            for(let i in elements){
+                sum += parseInt(elements[i]);
+            }
+            sumdiv.innerText = sum;
+
+            let warning = document.getElementsByTagName('label')[0];
+            if(isNaN(sum)){
+                warning.style.boxShadow = "1px 1px 2px orangered";
+            }else{
+                warning.style.boxShadow = "1px 1px 2px palegreen";
+            }
+        }
+    }
+</script>
+
+<body>
+    <div id="container">
+        <label for="array">
+            <input type="text" id="array" value="1,2,3,4,5,6,7,8,9,10"><br>
+            输入数字求和，数字之间用半角符","分隔
+        </label><br>
+        <button>求和</button><br>
+        <div>
+            <strong id="sum"><br></strong>
+        </div>
+    </div>
+</body>
+</html>
