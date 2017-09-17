@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单一按钮显示/隐藏一播放列表收缩展开s</title>
+</head>
+
+<style>
+    #container{
+        width: 250px;
+        margin: 10px auto;
+        background-color: paleturquoise;
+        box-shadow: 2px 2px 3px paleturquoise;
+        font-size: 14px;
+    }
+    #head{
+        padding: 7px;
+        background: rgb(95, 190, 216) url(img/ico.gif) 230px 15px no-repeat;
+        cursor: pointer;
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    ul li{
+        padding: 7px;
+        cursor: pointer;
+        display: none;
+        transition: all 0.5s;
+    }
+    ul li:hover{
+        background-color: rgb(42, 220, 240);
+        color: gray;
+        text-decoration: underline;
+    }
+</style>
+
+<script>
+    window.onload = function(){
+        var head = document.getElementById('head');
+        var list = document.getElementById('list').getElementsByTagName('li');
+
+        head.onclick = function(){
+            if(head.style.backgroundPositionY === "15px"){
+                head.style.backgroundPositionY = "-12px";
+            }else{
+                head.style.backgroundPositionY = "15px";
+            }
+
+            if(list[0].style.display === "block"){
+                for(let i=0; i<list.length; i++){
+                    list[i].style.display = "none";
+                }
+            }else{
+                for(let i=0; i<list.length; i++){
+                    list[i].style.display = "block";
+                }
+            }
+        }
+    }
+</script>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <strong>播放列表...</strong>
+        </div>
+        <div id="list">
+            <ul>
+                <li>玩家之徒 - 蔡依林</li>
+                <li>原谅我就是这样的女生 - 戴佩妮</li>
+                <li>猜不透 - 丁当</li>
+                <li>自导自演 - 周杰伦</li>
+                <li>浪漫窝 - 弦子</li>
+                <li>流年 - 王菲</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
