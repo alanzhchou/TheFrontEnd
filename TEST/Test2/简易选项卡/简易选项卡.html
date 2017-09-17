@@ -55,10 +55,14 @@
         for(let i in tab){
             tab[i].index = i;
             tab[i].onmouseover = function(){
-                for(let j in list){
+                for(let j=0; j<list.length; j++){
+                    //由于getElement语句返回的是一个对象
+                    //前几个是返回的所需的ul元素，但仍有另外三个键值对
+                    //两个为执行操作的item和nameitem函数
+                    //最后一个为length，即返回的ul的个数。
                     list[j].style.display = "none";
-                    list[this.index].style.display = "block";
                 }
+                list[this.index].style.display = "block";
             }
         }
     }

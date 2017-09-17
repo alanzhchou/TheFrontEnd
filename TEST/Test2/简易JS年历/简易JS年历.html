@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简易JS年历</title>
+</head>
+
+<style>
+    #container{
+        width: 250px;
+        margin: 0 auto;
+        border: 2px dashed palegreen;
+        background-color: rgb(182, 198, 201)
+    }
+    table{
+        margin: 5px auto;
+        border-spacing: 5px;
+    }
+    table td{
+        padding: 5px;
+        background-color: rgb(91, 86, 86);
+        text-align: center;
+        color: #fff;
+        border: 1px solid black;
+        border-radius: 20%;
+        box-shadow: 1px 1px 2px gray;
+        transition: all 0.5s;
+    }
+    table td:hover{
+        background-color: ghostwhite;
+        color: rgb(238, 117, 141);
+        box-shadow: 2px 2px 3px gray;
+    }
+    #info{
+        width: 190px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        overflow: hidden;
+        background-color: gainsboro;
+        border: 1px solid ghostwhite;
+        border-radius: 20%;
+        box-shadow: 2px 2px 3px gray;
+        font-size: 12px;
+        padding: 5px;
+        transition: all 0.5s;
+    }
+    #info h2{
+        margin-top: 5px;
+    }
+    #info p{
+        margin-top: -15px;
+    }
+</style>
+
+<script>
+    window.onload = function(){
+        var month = document.getElementById('month').getElementsByTagName('td');
+        var infomonth = document.getElementById('info').getElementsByTagName('strong')[0];
+        var holiday = document.getElementById('info').getElementsByTagName('p')[0];
+        var holidayinfo = [
+                            '元旦：1月1日至1月3日放假三天。',
+                            '春节：2月2日至8日放假7天。',
+                            '妇女节：3月8日妇女节，与我无关。',
+                            '清明节：4月3日至5日放假3天',
+                            '劳动节：4月30日至5月2日放假3天。',
+                            '端午节：6月4日至6日放假3天。',
+                            '小暑：7月7日小暑。不放假。',
+                            '七夕节：8月6日七夕节。不放假。',
+                            '中秋节：9月10日至12日放假3天。',
+                            '国庆节：10月1日至7日放假7天。',
+                            '立冬：11月8日立冬。不放假。',
+                            '艾滋病日:12月1日<br />废除奴隶制国际日:12月2日。'
+                            ];
+
+        for(let i=0; i<month.length; i++){
+            month[i].index = i;
+            month[i].onmouseover = function(){
+                infomonth.innerText = this.index + 1;
+                holiday.innerHTML = holidayinfo[this.index];
+            }
+        }                    
+    }
+</script>
+
+<body>
+    <div id="container">
+        <div id="month">
+            <table>
+                <tr>
+                    <td><strong>1</strong><br>JAN</td>
+                    <td><strong>2</strong><br>FEB</td>
+                    <td><strong>3</strong><br>MAR</td>
+                    <td><strong>4</strong><br>APR</td>
+                </tr>
+                <tr>
+                    <td><strong>5</strong><br>MAY</td>
+                    <td><strong>6</strong><br>JUN</td>
+                    <td><strong>7</strong><br>JUL</td>
+                    <td><strong>8</strong><br>AUG</td>
+                </tr>
+                <tr>
+                    <td><strong>9</strong><br>SEP</td>
+                    <td><strong>10</strong><br>OCT</td>
+                    <td><strong>11</strong><br>NOV</td>
+                    <td><strong>12</strong><br>DEC</td>
+                </tr>
+            </table>
+        </div>
+        <div id="info">
+            <h2><strong>1</strong>月节日</h2>
+            <p>元旦：1月1日至1月3日放假三天</p>
+        </div>
+    </div>
+</body>
+</html>
