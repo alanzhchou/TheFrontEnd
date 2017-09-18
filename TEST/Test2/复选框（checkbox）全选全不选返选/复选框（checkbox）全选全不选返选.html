@@ -6,9 +6,110 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>复选框（checkbox）全选/全不选/返选</title>
 </head>
+
+<style>
+    #container{
+        width: 100px;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 10%;
+        background-color: rgb(222, 243, 243);
+        font-size: 13px;
+        overflow: hidden;
+    }
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    #select{
+        border-bottom: 2px solid black;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+    #select label{
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    #select #selectall{
+        transition: all 0.8s;
+    }
+    #select #selectall:hover{
+        color: gray;
+    }
+    #select #selectAgainst{
+        margin-left: 10px;
+        color: rgb(88, 209, 209);
+        transition: all 0.8s;
+    }
+    #select #selectAgainst:hover{
+        color: orangered;
+    }
+    #list li{
+        margin: 5px;
+        padding: 2px;
+    }
+</style>
+
+<script>
+    window.onload = function(){
+        var selectAll = document.getElementById('selectAll');
+        var selectAgainst = document.getElementById('selectAgainst');
+        var list = document.getElementsByTagName('li');
+
+        function checkAll(){
+            let count = 0;
+            for(let i=0; i<list.length; i++){
+                let input = li[i].getElementsByTagName('input')[0];
+                if(input.checked === true){
+                    count++;
+                }
+            }
+            if(n === list.length -1){
+                selectAll.getElementById('selectAll').checked = true;
+                selectAll.innerText = '全不选'
+            }else{
+                selectAll.getElementById('selectAll').checked = false;
+                selectAll.innerText = '全选'
+            }
+        }
+
+        selectAll.onclick = function(){
+            for(let i=0; i<list.length; i++){
+                list[i].getElementsByTagName('input')[0].checked = this.getElementById('selectAll').checked;
+            }
+            checkAll();
+        };
+        
+
+    }
+</script>
 <body>
     <div id="container">
-
+        <div id="select">
+            <label id="selectall" for="selectAll"><input type="checkbox" id="selectAll">全选</label>
+            <label id="selectAgainst">反选</label>
+        </div>
+        <div id="list">
+            <ul>
+                <li><label for="list1"><input type="checkbox" id="list1">选项（一）</label></li>
+                <li><label for="list2"><input type="checkbox" id="list2">选项（二）</label></li>
+                <li><label for="list3"><input type="checkbox" id="list3">选项（三）</label></li>
+                <li><label for="list4"><input type="checkbox" id="list4">选项（四）</label></li>
+                <li><label for="list5"><input type="checkbox" id="list5">选项（五）</label></li>
+                <li><label for="list6"><input type="checkbox" id="list6">选项（六）</label></li>
+                <li><label for="list7"><input type="checkbox" id="list7">选项（七）</label></li>
+                <li><label for="list8"><input type="checkbox" id="list8">选项（八）</label></li>
+                <li><label for="list9"><input type="checkbox" id="list9">选项（九）</label></li>
+                <li><label for="list10"><input type="checkbox" id="list10">选项（十）</label></li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
