@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标移过，修改图片路径(加载等待功能)</title>
+</head>
+
+<style>
+    body{
+        background-color: gray;
+    }
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    #container{
+        width: 245px;
+        margin: 10px auto;
+        padding: 5px;
+        border: 2px solid palegreen;
+        overflow: hidden;
+        background-color: rgb(126, 123, 94);
+    }
+    #container li{
+        list-style: none;
+        margin: 3px;
+        float: left;
+        border: 3px solid paleturquoise;
+    }
+    #container li .small{
+        transition: all 0.5s;
+    }
+    #container .small:hover{
+        transform: scale(1.1);
+    }
+    #container .big img{
+        width: 170px;
+        height: 180px;
+    }
+    #container .big div{
+        width: 170px;
+        height: 180px;
+        opacity: 0.5;
+        background: #fff url(img/loading.gif) 50% 50% no-repeat;
+        display: none;
+    }
+</style>
+
+<script>
+    window.onload = function(){
+        var small = document.getElementsByClassName('small');
+        var big = document.getElementsByClassName('big')[0].getElementsByTagName('img')[0]; 
+
+        for(let i=0; i<small.length; i++){
+            let smallimg = small[i].getElementsByTagName('img')[0];
+            let loading = document.getElementById('box').getElementsByTagName('div')[0];
+            let img = new Image();
+            smallimg.onmouseover = function(){
+                loading.style.display = "block";
+                big.style.display = "none";
+                img.src = this.src;
+                big.src = this.src;
+                img.onload = function(){
+                    loading.style.display = "none";
+                    big.style.display = "block";
+                };
+            } 
+        }
+    }
+</script>
+
+<body>
+    <div id="container">
+        <ul id="box">
+            <li class="big"><img src="img/1.jpg" alt=""><div></div></li>
+            <li class="small"><img src="img/1.jpg" alt=""></li>
+            <li class="small"><img src="img/2.jpg" alt=""></li>
+            <li class="small"><img src="img/3.jpg" alt=""></li>
+            <li class="small"><img src="img/4.jpg" alt=""></li>
+            <li class="small"><img src="img/5.jpg" alt=""></li>
+            <li class="small"><img src="img/6.jpg" alt=""></li>
+            <li class="small"><img src="img/7.jpg" alt=""></li>
+            <li class="small"><img src="img/8.jpg" alt=""></li>
+            <li class="small"><img src="img/9.jpg" alt=""></li>
+            <li class="small"><img src="img/10.jpg" alt=""></li>
+            <li class="small"><img src="img/11.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>
