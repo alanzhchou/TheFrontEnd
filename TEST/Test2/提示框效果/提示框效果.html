@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>提示框效果</title>
+</head>
+
+<style>
+    #container{
+        width: 650px;
+        margin: 10px auto;
+        background-color: ghostwhite;
+        border: 1px solid gray;
+    }
+    #head{
+        text-align: center;
+    }
+    table{
+        margin: 5px auto;
+        border-spacing: 5px;
+        font-size: 14px;
+    }
+
+    #cars td{
+        width: 100px;
+        height: 100px;
+        padding: 5px;
+        border: 2px solid palegreen;
+        transition: all 0.5s;
+    }
+    #cars td:hover{
+        transform: scale(1.2) rotate(360deg);
+    }
+    #cars td a{
+        color: #666;
+    }
+
+    #cars img{
+        width: 100px;
+        height: 100px;
+        display: none;
+    }
+</style>
+
+<script>
+    window.onload = function(){
+
+        var cars = document.getElementById('cars').getElementsByTagName('td');
+        
+        
+
+        for(let i=0; i<cars.length; i++){
+            cars[i].index = i;
+            cars[i].onmouseover = function(){ 
+                let carinfo = cars[this.index].getElementsByTagName('a')[0];
+                let imgs = cars[this.index].getElementsByTagName('img')[0];
+                carinfo.style.display = "none";
+                imgs.style.display = "block";
+            }
+            cars[i].onmouseout = function(){ 
+                let carinfo = cars[this.index].getElementsByTagName('a')[0];
+                let imgs = cars[this.index].getElementsByTagName('img')[0];
+                carinfo.style.display = "block";
+                imgs.style.display = "none";
+            }
+        }
+    }
+</script>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <h2>名车车标展示-鼠标移过显示车标</h2>
+        </div>
+        <div id="cars">
+            <table>
+                <tr>
+                    <td>
+                        <a href="javascript:;">
+                        <strong>BMW</strong><br>
+                        <p>宝马汽车</p>
+                        </a>
+                        <img src="img/1.jpg" alt="">
+                    </td>
+                    <td>
+                        <a href="javascript:;">
+                        <strong>Alfa Romeo</strong><br>
+                        <p>阿尔法-罗密欧</p>
+                        </a>
+                        <img src="img/2.jpg" alt="">
+                    </td>
+                    <td>
+                        <a href="javascript:;">
+                        <strong>Skoda</strong><br>
+                        <p>斯柯达</p>
+                        </a>
+                        <img src="img/3.jpg" alt="">
+                    </td>
+                    <td>
+                        <a href="javascript:;">
+                        <strong>Volkswagen</strong><br>
+                        <p>大众汽车</p>
+                        </a>
+                        <img src="img/4.jpg" alt="">
+                    </td>
+                    <td>
+                        <a href="javascript:;">
+                        <strong>Saab</strong><br>
+                        <p>萨布牌轿车</p>
+                        </a>
+                        <img src="img/5.jpg" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="javascript:;">
+                        <strong>Lamborghini</strong><br>
+                        <p>兰博基尼</p>
+                        </a>
+                        <img src="img/6.jpg" alt="">
+                    </td>
+                    <td>
+                        <a href="javascript:;">
+                        <strong>Porsche</strong><br>
+                        <p>保时捷</p>
+                        </a>
+                        <img src="img/7.jpg" alt="">
+                    </td>
+                    <td>
+                        <a href="javascript:;">
+                        <strong>Peugeot</strong><br>
+                        <p>标致</p>
+                        </a>
+                        <img src="img/8.jpg" alt="">
+                    </td>
+                    <td>
+                        <a href="javascript:;">
+                        <strong>Mercedesl</strong><br>
+                        <p>梅赛德斯 奔驰</p>
+                        </a>
+                        <img src="img/9.jpg" alt="">
+                    </td>
+                    <td>
+                        <a href="javascript:;">
+                        <strong>Buick</strong><br>
+                        <p>别克</p>
+                        </a>
+                        <img src="img/10.jpg" alt="">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
