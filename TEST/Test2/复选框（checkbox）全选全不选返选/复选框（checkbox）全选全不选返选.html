@@ -9,7 +9,7 @@
 
 <style>
     #container{
-        width: 100px;
+        width: 110px;
         margin: 10px auto;
         padding: 10px;
         border-radius: 10%;
@@ -63,37 +63,45 @@
         var selectAgainst = document.getElementById('selectAgainst');
         var list = document.getElementsByTagName('li');
 
-        function checkAll(){
-            let count = 0;
-            for(let i=0; i<list.length; i++){
-                let input = li[i].getElementsByTagName('input')[0];
-                if(input.checked === true){
-                    count++;
-                }
-            }
-            if(n === list.length -1){
-                selectAll.getElementById('selectAll').checked = true;
-                selectAll.innerText = '全不选'
-            }else{
-                selectAll.getElementById('selectAll').checked = false;
-                selectAll.innerText = '全选'
-            }
-        }
-
         selectAll.onclick = function(){
             for(let i=0; i<list.length; i++){
-                list[i].getElementsByTagName('input')[0].checked = this.getElementById('selectAll').checked;
+                list[i].getElementsByTagName('input')[0].checked = this.checked;
             }
-            checkAll();
+            if(this.checked === true){
+                document.getElementById('selectall').innerText = '全不选';
+            }else{
+                document.getElementById('selectall').innerText = '全选';
+            }
         };
-        
+
+        selectAgainst.onclick = function(){
+            let T = 0;
+            let F = 0;
+            for(let i=0; i<list.length; i++){
+                if(list[i].getElementsByTagName('input')[0].checked === true){
+                    list[i].getElementsByTagName('input')[0].checked = false;
+                    F++;
+                }else{
+                    list[i].getElementsByTagName('input')[0].checked = true;
+                    T++;
+                }
+            }
+            if(T === list.length){
+                selectAll.checked = true;
+                document.getElementById('selectall').innerText = '全选';
+            }if(F === list.length){
+                
+                selectAll.checked = false;
+                document.getElementById('selectall').innerText = '全不选';
+            }
+        }
 
     }
 </script>
 <body>
     <div id="container">
         <div id="select">
-            <label id="selectall" for="selectAll"><input type="checkbox" id="selectAll">全选</label>
+            <input type="checkbox" id="selectAll"><label id="selectall" for="selectAll">全选</label>
             <label id="selectAgainst">反选</label>
         </div>
         <div id="list">
