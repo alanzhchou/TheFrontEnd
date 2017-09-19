@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用typeof查看数据类型</title>
+</head>
+
+<style>
+    pre{
+        margin: 15px;
+        padding: 5px;
+        background: rgb(241, 251, 255);
+        color: rgb(108, 165, 7);
+        border: 1px solid gray; 
+        overflow: hidden;
+    }
+</style>
+<script>
+    window.onload = function(){
+        var pre = document.getElementsByTagName('pre')[0];
+
+        pre.onclick = function(){
+            alert(
+                'typeof 123456:\t' + typeof 123456 +
+                '\n\ntypeof \'abc\':\t' + typeof 'abc' + 
+                '\n\ntypeof document:\t' + typeof document
+            );
+        }
+    }
+</script>
+<body>
+    <pre>
+        &lt;script&gt;//点击此处显示代码结果
+            alert(typeof 12345);        <span>//应当输出number</span>
+            alert(typeof 'abc');        <span>//应当输出string</span>
+            alert(typeof document);     <span>//应当输出object</span>
+        &lt;/script&gt;
+    </pre>
+</body>
+</html>
