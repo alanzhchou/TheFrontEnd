@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>累加按钮，自加1</title>
+    <title>页面加载后累加，自加1</title>
 </head>
 
 <style>
@@ -19,9 +19,10 @@
     window.onload = function(){
         var text = document.getElementsByTagName('input')[0]; 
 
-        text.onclick = function(){
-            text.value++;
-            alert(text.value);
+        setInterval(updateNum, 1000);
+        function updateNum()
+        {
+            text.value++;	
         }
     }
 </script>
