@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>判断数字是否为两位数</title>
+</head>
+
+<style>
+    #container{
+        margin: 20px auto;
+        padding: 10px;
+        background-color: rgb(231, 255, 255);
+        text-align: center;
+    }
+    input{
+        border: 1px solid palegreen;
+        margin-right: 15px;
+    }
+    input:focus{
+        box-shadow: 2px 2px 3px palegreen;
+    }
+</style>
+
+<script>
+    window.onload = function(){
+        var nums = document.getElementsByClassName('test');
+        var result = document.getElementById('result');
+
+        for(let i=0; i<nums.length; i++){
+            nums[i].onkeyup = function(){
+                this.value = this.value.replace(/[^\d]$/,'');
+            }
+        }
+
+        result.onclick = function(){
+            let count = 0;
+            for(let j=0; j<nums.length; j++){
+                if(nums[j].value === ''){
+                    count++;
+                }
+                if(count === 0){
+                    if(/^\d{2}$/.test(parseInt(nums[j].value)) === true){
+                        alert('第' + (j+1) + '个输入框中的是两位数')
+                    }
+                }
+            }
+
+            if(count > 0){
+                alert('请完整输入数字');
+            }
+        }
+    }
+</script>
+
+<body>
+    <div id="container">
+        <input type="text" class="test">
+        <input type="text" class="test">
+        <button id="result">是否为两位数</button>
+    </div>
+</body>
+</html>
