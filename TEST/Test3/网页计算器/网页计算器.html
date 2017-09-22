@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网页计算器</title>
+</head>
+
+<style>
+    #container{
+        width: 300px;
+        margin: 20px auto;
+        padding: 10px;
+        background-color: paleturquoise;
+        text-align: center;
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    li{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        float: left;
+    }
+    input{
+        margin:0;
+        padding:0;
+        width: 300px;
+    }
+    #small{
+        line-height: 20px;
+    }
+    #big{
+        line-height: 50px;
+    }
+    #button ul li{
+        display: block;
+        width: 70px;
+        height: 45px;
+        float: left;
+        background:url(img/btn.png) no-repeat;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <div id="display">
+            <input type="text" id="small">
+            <input type="text" id="big">
+        </div>
+        <div id="buttons">
+            <ul>
+                <li class="cal">/</li>
+                <li class="cal">X</li>
+                <li class="cal">-</li>
+                <li class="cal">+</li>
+
+                <li class="num"></li>
+                <li class="num"></li>
+                <li class="num"></li>
+                <li class="backup"></li>
+
+                <li class="num"></li>
+                <li class="num"></li>
+                <li class="num"></li>
+                <li class="clear"></li>
+
+                <li class="num"></li>
+                <li class="num"></li>
+                <li class="num"></li>
+                <li class="equal"></li>
+
+                <li class="num"></li>
+                <li class="point"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
