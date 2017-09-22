@@ -12,8 +12,9 @@
         width: 300px;
         margin: 20px auto;
         padding: 10px;
-        background-color: paleturquoise;
+        background-color: rgb(19, 22, 22);
         text-align: center;
+        font-size: 22px;
     }
     ul{
         margin: 0;
@@ -32,25 +33,89 @@
         width: 300px;
     }
     #small{
+        text-align: right;
+        background-color: #d8d8bc;
         line-height: 20px;
     }
     #big{
+        text-align: right;
+        background-color: #d8d8bc;
         line-height: 50px;
+        font-size: 35px;
     }
-    #button ul li{
+    #buttons{
+        background-color: rgb(27, 24, 24);
+        overflow: hidden;
+        padding-top:10px; 
+    }
+    #buttons ul li{
         display: block;
-        width: 70px;
-        height: 45px;
+        width:63px;
+        height:41px;
+        margin: 6px;
+        line-height: 41px;
         float: left;
-        background:url(img/btn.png) no-repeat;
+        color: #fff;
+        border-radius: 20%;
+    }
+    #buttons ul .num{
+        display: block;
+        width:63px;
+        height:41px;
+        float: left;
+        background:url(img/num.jpg) no-repeat;
+    }
+    #buttons ul .num:hover{
+        background:url(img/numhover.jpg) no-repeat;
+    }
+    #buttons ul #zero{
+        margin-top: -50px;
+    }
+    #buttons ul .point{
+        display: block;
+        width:136px;
+        height:41px;
+        margin-top: -50px;
+        margin-left: 82px;
+        float: left;
+        background:url(img/point.jpg) no-repeat;
+    }
+    
+    #buttons ul .point:hover{
+        background:url(img/pointhover.jpg) no-repeat;
+    }
+    #buttons ul .cal,.backup,.clear{
+        display: block;
+        width:63px;
+        height:41px;
+        float: left;
+        background:url(img/cal.jpg) no-repeat;
+    }
+    #buttons ul .cal:hover,.backup:hover,.clear:hover{
+        background:url(img/calhover.jpg) no-repeat;
+    }
+    #buttons ul .equal{
+        display: block;
+        width:63px;
+        height:99px;
+        right:0;
+        float: left;
+        background:url(img/=.jpg) no-repeat;
+    }
+    #buttons ul .equal:hover{
+        background:url(img/=hover.jpg) no-repeat;
     }
 </style>
+
+<script>
+    
+</script>
 
 <body>
     <div id="container">
         <div id="display">
-            <input type="text" id="small">
-            <input type="text" id="big">
+            <input type="text" id="small" maxlength="16">
+            <input type="text" id="big" maxlength="15">
         </div>
         <div id="buttons">
             <ul>
@@ -59,23 +124,23 @@
                 <li class="cal">-</li>
                 <li class="cal">+</li>
 
-                <li class="num"></li>
-                <li class="num"></li>
-                <li class="num"></li>
-                <li class="backup"></li>
+                <li class="num">7</li>
+                <li class="num">8</li>
+                <li class="num">9</li>
+                <li class="backup"><<<</li>
 
-                <li class="num"></li>
-                <li class="num"></li>
-                <li class="num"></li>
-                <li class="clear"></li>
+                <li class="num">4</li>
+                <li class="num">5</li>
+                <li class="num">6</li>
+                <li class="clear">C</li>
 
-                <li class="num"></li>
-                <li class="num"></li>
-                <li class="num"></li>
-                <li class="equal"></li>
+                <li class="num">1</li>
+                <li class="num">2</li>
+                <li class="num">3</li>
+                <li class="equal">=</li>
 
-                <li class="num"></li>
-                <li class="point"></li>
+                <li class="num" id="zero">0</li>
+                <li class="point">.</li>
             </ul>
         </div>
     </div>
