@@ -26,6 +26,7 @@
         padding: 0;
         list-style: none;
         float: left;
+        transition: all 0.5s;
     }
     input{
         margin:0;
@@ -71,7 +72,7 @@
     #buttons ul #zero{
         margin-top: -50px;
     }
-    #buttons ul .point{
+    #buttons ul #point{
         display: block;
         width:136px;
         height:41px;
@@ -81,7 +82,7 @@
         background:url(img/point.jpg) no-repeat;
     }
     
-    #buttons ul .point:hover{
+    #buttons ul #point:hover{
         background:url(img/pointhover.jpg) no-repeat;
     }
     #buttons ul .cal,.backup,.clear{
@@ -98,6 +99,7 @@
         display: block;
         width:63px;
         height:99px;
+        line-height: 99px;
         right:0;
         float: left;
         background:url(img/=.jpg) no-repeat;
@@ -105,22 +107,113 @@
     #buttons ul .equal:hover{
         background:url(img/=hover.jpg) no-repeat;
     }
+
+    #tips{
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        background-color: rgb(27, 24, 24);
+        color: #fff;
+        border: none;
+    }
+    #info{
+        background-color: rgb(27, 24, 24);
+        color: #fff;
+        border: none;
+        text-align: center;
+    }
 </style>
 
 <script>
-    
+    window.onload = function(){
+        
+        var small = document.getElementById('small');
+        var big = document.getElementById('big');
+        var nums = document.getElementsByClassName('num');
+
+
+        var cal = document.getElementsByClassName('cal');
+        var backup = document.getElementsByClassName('backup')[0];
+        var clear = document.getElementsByClassName('clear')[0];
+        var equal = document.getElementsByClassName('equal')[0];
+
+        var tips = document.getElementById('tips');
+
+
+        clear.onclick = function(){
+            big.value = '';
+            small.value = '';
+        }
+
+        backup.onclick = function(){
+            let cal1 = big.value.toString();
+            let cal2 = small.value.toString();
+            big.value = cal1.substring(0,cal1.length-1);
+            small.value = cal2.substring(0,cal2.length-1)
+        }
+        
+
+        for(let i=0; i<nums.length; i++){
+            nums[i].onclick = function(){
+                if(big.value.toString().length < 14){
+                    tips.value = '提示信息会在这里展示';
+                    big.value = big.value + this.innerText;
+
+                    if(small.value.toString().length < 29){
+                        tips.value = '提示信息会在这里展示';
+                        small.value = small.value + this.innerText;
+                        if(small.value.toString().length === 29){
+                            tips.value = '数据溢出，无法正确计算';
+                        }
+                    }
+                    
+                    if(big.value.toString().length === 14){
+                        tips.value = '数据溢出，无法正确计算';
+                    }
+                }
+            }
+        }
+        
+        for(let j=0; j<cal.length; j++){
+            cal[j].onclick = function(){
+                small.value = big.value;
+                big.value = '';
+                if(small.value.toString().length < 29){
+                    tips.value = '提示信息会在这里展示';
+                    small.value = small.value + this.innerText;
+
+                    if(small.value.toString().length === 29){
+                        tips.value = '数据溢出，无法正确计算';
+                    }
+                }
+            }
+        }
+        
+        equal.onclick = function(){
+            
+            let result = eval(small.value).toString();
+            big.value = result.substring(0,14);
+            
+            if(big.value.toString().length === 14){
+                tips.value = '数据溢出，无法正确计算';
+            }
+            if(small.value.toString().length === 29){
+                tips.value = '数据溢出，无法正确计算';
+            }
+        }
+    }
 </script>
 
 <body>
     <div id="container">
         <div id="display">
-            <input type="text" id="small" maxlength="16">
-            <input type="text" id="big" maxlength="15">
+            <input type="text" id="small" maxlength="29" readonly>
+            <input type="text" id="big" maxlength="14" readonly>
         </div>
         <div id="buttons">
             <ul>
                 <li class="cal">/</li>
-                <li class="cal">X</li>
+                <li class="cal">*</li>
                 <li class="cal">-</li>
                 <li class="cal">+</li>
 
@@ -140,8 +233,12 @@
                 <li class="equal">=</li>
 
                 <li class="num" id="zero">0</li>
-                <li class="point">.</li>
+                <li class="num" id="point">.</li>
             </ul>
+        </div>
+        <div id="warning">
+            <input type="text" id="tips" value="提示信息会在这里展示">
+            <input type="text" id="info" value="alanzchou@163.com">
         </div>
     </div>
 </body>
