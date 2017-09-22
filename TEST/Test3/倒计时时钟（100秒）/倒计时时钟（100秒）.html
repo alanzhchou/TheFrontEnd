@@ -51,15 +51,12 @@
         line-height: 40px;
         background-color: rgb(82, 228, 82);
         margin: 40px;
-        border-radius: 10%;
+        border-radius: 15%;
         box-shadow: 2px 2px 3px black;
         text-align: center;
         font-size: 23px;
         font-weight: bold; 
         transition: all 0.8s;
-    }
-    #start:hover{
-        background-color: rgb(250, 250, 191);
     }
 </style>
 
@@ -68,15 +65,37 @@
         var time = document.getElementsByClassName('display');
         var operation = document.getElementById('start');
         
+        operation.onclick = function(){
+            let seconds = parseInt(time[0].innerText*60) + parseInt(time[1].innerText);
+            function decrease(){
+                if(parseInt(time[0].innerText) != 0 || parseInt(time[1].innerText) != 0){
+                    seconds--;
+                    time[0].innerText = parseInt(seconds/(60));
+                    time[1].innerText = seconds%60;
+                }else{
+                    clearInterval(t);
+                }
+            };
 
+            if(operation.innerText === '启动'){
+                operation.innerText = '暂停';
+                operation.style.backgroundColor = 'rgb(225, 112, 106)';
+                t = setInterval(decrease,1000);
+            }else{
+                clearInterval(t);
+                operation.innerText = '启动';
+                operation.style.backgroundColor = 'rgb(82, 228, 82)';
+                
+            }
+        }
     }
 </script>
 
 <body>
     <div id="container">
         <div id="time">
-            <div class="display">01</div><div class="unit">分钟</div>
-            <div class="display">40</div><div class="unit">秒</div>
+            <div class="display">1</div><div class="unit">分钟</div>
+            <div class="display">10</div><div class="unit">秒</div>
         </div>
         <button id="start">启动</button>
     </div>
