@@ -8,10 +8,12 @@
 </head>
 
 <style>
+    body{
+        background-color: gray;
+    }
     #nav{
         width: 800px;
         margin: 10px auto;
-        
         background: rgb(111, 122, 196);
         border-radius: 5%;
     }
@@ -48,7 +50,6 @@
     }
     li a:hover{
         font-weight: 800;
-        color: rgb(10, 8, 8);
     }
     .subnav{
         display: none;   
@@ -61,21 +62,25 @@
         white-space:nowrap;
     }
     #nav .subnav p span{
+        width: 97px;
         display:block;
-        color:#235e99;
         text-align:center;
+        opacity: 0.8;
     }
     #nav .subnav p a{
-        font-size:10px;
-        margin-left: -4px;
-        padding: 8px;
+        font-size:12px;
         display:inline;
+        line-height:16px;
         float: left;
-        color:#000;
-        background-color: palegreen;
+        color:rgb(10, 43, 76);
+        background-color: rgb(208, 233, 208);
         border: 1px solid rgb(118, 160, 245);
-        border-radius: 30%;
-        border-top: 3px solid rgb(118, 160, 245);
+        border-radius: 10%;
+        transition: all 0.1s;
+    }
+    #nav .subnav p a:hover{
+        background-color: peru;
+        transform: scale(1.05);
     }
 </style>
 
