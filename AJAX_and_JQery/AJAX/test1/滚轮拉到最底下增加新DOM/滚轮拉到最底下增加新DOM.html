@@ -9,9 +9,8 @@
 <style>
     #container{
         width: 600px;
-        height: 200px;
+        height: 400px;
         margin: 20px auto;
-        padding: 1px;
         background-color: palegreen;
         overflow: auto;
     }
@@ -22,6 +21,42 @@
     }
 </style>
 
+<script>
+    window.onload = function(){
+        var container = document.getElementById('container');
+        var center = document.getElementsByTagName('center');
+        var judge = true;
+
+        function append_center(){
+            var new_center = document.createElement('center')
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP")
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    new_center.innerText = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open('GET', 'test.txt');
+            xmlhttp.send();
+            
+            container.appendChild(new_center);
+            judge = true;
+        }
+        
+
+        container.onscroll = function(){
+            if(judge&&this.offsetHeight + this.scrollTop === this.scrollHeight){
+                setTimeout(append_center,500);
+                judge = false;
+            }
+        }
+    }
+</script>
+
 <body>
     <div id="container">
         <center>第1行</center>
@@ -29,6 +64,10 @@
         <center>第3行</center>
         <center>第4行</center>
         <center>第5行</center>
+        <center>第6行</center>
+        <center>第6行</center>
+        <center>第6行</center>
+        <center>第6行</center>
         <center>第6行</center>
     </div>
 </body>
