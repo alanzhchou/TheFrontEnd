@@ -1,0 +1,164 @@
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../jquery-3.2.1.min.js"></script>
+    <title>JQuery事件处理</title>
+</head>
+<style>
+    .description{
+        width: 140px;
+        margin-left: 20px;
+        padding: 10px;
+        border: 1px solid gray;
+        float: left;
+    }
+    .test{
+        width: 500px;
+        margin-left: 20px;
+        padding: 10px;
+        border: 1px solid gray;
+        float: left;
+    }
+    .test div{
+        margin: 20px;
+        padding: 20px;
+    }
+    .test #scroll{
+        width:200px;
+        height:100px;
+        border:1px solid black;
+        overflow:scroll;
+    }
+</style>
+
+<script>
+    $(document).ready(function(){
+        $("#mouse #click").click(function(){
+            alert("我是click");
+        });
+        $("#mouse #dblclick").dblclick(function(){
+            alert("我是dblclick");
+        });
+
+
+        $("#mouse #mouseenter").mouseenter(function(){
+            $(this).css("box-shadow","2px 2px 4px red");
+            $("#mouse #mouseleave").css("box-shadow","2px 2px 4px blue");
+        });
+        $("#mouse #mouseleave").mouseleave(function(){
+            $(this).css("box-shadow","");
+            $("#mouse #mouseenter").css("box-shadow","");
+        });
+
+        
+        $("#keypress input").keypress(function(){
+            $("#keypress span").text(function(){
+                return $("#keypress #keypress-input").val().length+1;
+            });
+        });
+
+
+        $("#form>form:eq(0)").submit(function(){
+            alert("提及啦！");
+        })
+        $("#form>form:eq(0)").change(function(){
+            $(this).children("span").eq(0).text(function(){
+                return $("#form>form:first>input:first").val().length;
+            });
+        });
+        $("#form>form:first>input:first").focus(function(){
+            $(this).css("box-shadow","2px 2px 4px gray");
+        });
+        $("#form>form:first>input:first").blur(function(){
+            $(this).css("box-shadow","1px 1px 2px gray");
+        });
+        
+
+        let temp = 0;
+        $(window).resize(function(){
+            $("div#file>p:first>span:first").text(function(){
+                return temp++;
+            });
+        });
+        
+        let temp2 = 0;
+        $("div#file>div:first").scroll(function(){
+            $("div#file>p:eq(1)>span:first").text(function(){
+                return temp2++;
+            });
+        });
+    });
+</script>
+
+<body>
+    <div class="description">
+        <h2>常见DOM事件</h2>
+        <h4>鼠标事件</h4>
+        <ul>
+            <li>click</li>
+            <li>dblclick</li>
+            <li>mouseenter</li>
+            <li>mouseleave</li>
+        </ul>
+
+        <h4>键盘事件</h4>
+        <ul>
+            <li>keypress</li>
+            <li>keydown</li>
+            <li>keyup</li>
+        </ul>
+
+        <h4>表单事件</h4>
+        <ul>
+            <li>submit</li>
+            <li>change</li>
+            <li>focus</li>
+            <li>blur</li>
+        </ul>
+
+        <h4>文档，窗口事件</h4>
+        <ul>
+            <li>load-JQuery1.8以上已经废弃</li>
+            <li>resize</li>
+            <li>scroll</li>
+            <li>unload-JQuery1.8以上已经废弃</li>
+        </ul>
+    </div>
+
+    <div class="test">
+        <div id="mouse">
+            <li id="click">click</li>
+            <li id="dblclick">dblclick</li>
+            <li id="mouseenter">mouseenter</li>
+            <li id="mouseleave">mouseleave</li>
+        </div>
+
+        <div id="keyboard">
+            <li id="keypress"><input type="text" id="keypress-input"><span>0</span></li>
+        </div>
+        <div id="form">
+            <form action="">
+                <input type="text" name="" id="">
+                <input type="password" name="" id="">
+                <span>0</span>
+                <button>submit</button>
+            </form>
+        </div>
+        <div id="file">
+            <p>改变浏览器窗口大小计数
+                <span>0</span>
+            </p>
+            <p>
+                尝试滚动 div 中的滚动条
+                <span>0</span>
+            </p>
+            <div id="scroll">
+                学的不仅是技术，更是梦想！学的不仅是技术，更是梦想！<br>
+                学的不仅是技术，更是梦想！学的不仅是技术，更是梦想！<br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
