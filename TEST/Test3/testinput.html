@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>function</title>
+</head>
+
+
+<body>
+	<p id="p-id" onclick="change(this)">我是没改变之前的p标签：id = p - id</p>
+	<br>
+	<input type="text">text<br>
+	<input type="password">passwd<br>
+	<input type="radio">radio<br>
+	<input type="checkbox">checkbox<br>
+	<select>select</select><br>
+	<input type="hidden">hidden<br>
+	<input type="color">选颜色<br>
+	<input type="date" value="2015-07-01" readonly><br>
+	<input type="datetime-local" value="2015-07-01T02:03:04" readonly><br>
+
+	<form action="" enctype="multipart/form-data" method="post">
+		<input type="file" id="test-file-upload"><br>
+	</form>
+</body>
+<script>
+	var f = document.getElementById('test-file-upload');
+	var filename = f.value;
+	if (!filename || !(filename.endsWith('.jpg') || filename.endsWith('.png') || filename.endsWith('.gif'))) {
+		alert('Can only upload image file.');
+		return false;
+	}
+</script>
+
+
+
+<script>
+	//'use strict';
+	/*	function getAge() {
+			var y = new Date().getFullYear();
+			return y - this.birth;
+		}
+	
+		var xiaoming = {
+			name: '小明',
+			birth: 1990,
+			age: getAge
+		};
+	
+		alert(xiaoming.age()); // 25, 正常结果
+		alert(getAge.apply(xiaoming,[])); // NaN
+		var fn = xiaoming.age; // 先拿到xiaoming的age函数
+		alert(fn()); // NaN
+	*/
+	/*
+	var count = 0;
+	var oldParseInt = parseInt; // 保存原函数
+	
+	window.parseInt = function () {
+		count += 1;
+		return oldParseInt.apply(null, arguments); // 调用原函数
+	};
+	
+	// 测试:
+	parseInt();
+	alert(count);
+	parseInt();
+	alert(count);
+	parseInt();
+	alert(count);
+	 // 3
+	*/
+
+	/*
+	var arr = [1,2,3,4,5];
+	function lazy_sum(arr){
+		var sum = function(){
+			return arr.reduce(function(x,y){
+				return x + y;
+			})
+		}
+		return sum;
+	}
+	
+	var f = lazy_sum([1, 2, 3, 4, 5]); // function sum()
+	alert(f);
+	alert(f());
+	
+	var f1 = lazy_sum([1, 2, 3, 4, 5]);
+	var f2 = lazy_sum([1, 2, 3, 4, 5]);
+	alert(f1 === f2); // false
+	*/
+
+	/*
+	function count(){
+		var arr = [];
+		for (var i = 1; i <= 3; i++) {
+			arr.push(
+				(function (n) {
+					return function () {
+						return n * n;
+					}
+						})(i)
+			);
+		}
+		return arr;
+	}	
+	
+	var result = count();
+	
+	var f1 = result[0];
+	var f2 = result[1];
+	var f3 = result[2];
+	
+	alert('f1: ' + f1());
+	alert('f2: ' + f2());
+	alert('f3: ' + f3());
+	*/
+
+	// 定义数字0:
+	/*
+	var zero = function (f) {
+	return function (x) {
+		return x;
+	}
+	};
+	// */
+	// function test(f){
+	// 	return function (){
+	// 		return f();
+	// 	};
+	// }
+
+	// (test(function(x){
+	// 	alert("test second");
+	// }))(function(){alert("test first")}());
+
+	// var cont = 0;
+
+	// function zero (f){
+	// 	return function (){
+	// 	}
+	// }
+
+	// // 定义数字1:
+	// function one (f){
+	// 	return function (){
+	// 		cont ++;
+	// 		return f();
+	// 	}
+	// }
+
+	// /*
+	// var one = function (f) {
+	// return function (x) {
+	// 	return f(x);
+	// }
+	// };
+	// */
+
+	// // 定义加法:
+	// function add(n, m) {
+	// 	return function (f) {
+	// 		return function () {
+	// 			return m(f)(n(f)());//return one(f)(one(f)());
+	// 		}
+	// 	}
+	// }
+
+	// // 计算数字2 = 1 + 1:
+	// var two = add(one, one);
+
+	// // 计算数字3 = 1 + 2:
+	// var three = add(one, two);
+
+	// // 计算数字5 = 2 + 3:
+	// var five = add(two, three);
+
+	// // 你说它是3就是3，你说它是5就是5，你怎么证明？
+
+	// // 呵呵，看这里:
+	// alert(one(function () {
+	// 	alert(cont);	
+	// 	return "function one is finished"
+	// 	})()
+	// );
+
+	// alert(add(one, one)(function () {
+	// 	alert(cont);	
+	// 	return "function add(one,one) is finished"
+	// 	})()
+	// );
+	/*
+	(add(one, two)(function () {
+		console.log('print 3 times');
+	}))();
+	
+	// 给5传一个函数,会打印5次:
+	(five(function () {
+		console.log('print 5 times');
+	}))();
+	*/
+	// 继续接着玩一会...
+	// var obj = {
+	// birth: 1990,
+	// getAge: function () {
+	// 	var b = this.birth; // 1990
+	// 	var fn = () => new Date().getFullYear() - this.birth; // this指向obj对象
+	// 	return fn();
+	// }
+	// };
+	// alert(obj.getAge()); // 25
+
+
+
+	// var obj = {
+	// 	birth: 1990,
+	// 	getAge: function (){
+	// 		var b = this.birth;
+	// 		return (() => new Date().getFullYear() - this.birth)();
+	// 	}
+	// };
+
+	// alert(obj.getAge());
+/*
+var xiaoming = {
+	name: '小明', 
+	age: 14, 
+	gender: true,
+	height: 1.65, 
+	grade: null, 'middle-school': '\"W3C\" Middle School', 
+	skills: ['JavaScript', 'Java', 'Python', 'Lisp'], 
+	toJSON: function () {
+		var fn = () => ({ Name: this.name, Age: this.age });
+		return fn();
+	}
+};
+
+console.log(xiaoming.toJSON());
+
+*/
+
+// function fib(max){
+// 	var t = 0,a = 1,arr = [];
+// 	while(t < max){
+// 		arr.push(t);
+// 		let b = t;
+// 		t = a + b;
+// 		a = b;
+// 	}
+// 	return arr;
+// }
+
+// function* fib2(max){
+// 	var t = 0,a = 1,arr = [];
+// 	while(t < max){
+// 		arr.push(t)
+// 		yield arr[arr.length-1];
+// 		let b = t;
+// 		t = a + b;
+// 		a = b;
+// 	}
+// 	return arr;
+// }
+
+// console.log(fib(20));
+
+// for (var x of fib2(20)) {
+// 	console.log(x); // 依次输出0, 1, 1, 2, 3
+// }
+
+
+//test Date
+// var now = new Date();
+// function* put(){
+// 	yield now.getFullYear();
+// 	yield now.getMonth() + 1;
+// 	yield now.getDate();
+// 	yield now.getDay();
+// 	yield now.getHours();
+// 	yield now.getMinutes();
+// 	yield now.getSeconds();
+// 	yield now.getMilliseconds();
+// 	yield now.getTime();
+// 	yield new Date(now.getTime());
+// 	yield Date.parse('2017-07-26T14:42:00.928Z');
+// 	yield new Date(Date.parse('2017-07-26T14:42:00.928Z'));
+// }
+
+// for (var x of put()) {
+// 	console.log(x);
+// }
+
+// if (Date.now) {
+// 	alert(Date.now()); // 老版本IE没有now()方法
+// } else {
+// 	alert(new Date().getTime());
+// }
+
+//test正则表达式
+// var re1 = /ABC\-001/;
+// var re2 = new RegExp('ABC\\-001');
+
+// var re = /^\d{3}\-\d{3,8}$/;
+
+// var xiaoming = {
+// name: '小明',
+// age: 14,
+// gender: true,
+// height: 1.65,
+// grade: null,
+// 'middle-school': '\"W3C\" Middle School',
+// skills: ['JavaScript', 'Java', 'Python', 'Lisp']
+// };
+
+
+// function* put(){
+// 	yield re.test('010-12345'); // true
+// 	yield re.test('010-1234x'); // false
+// 	yield re.test('010 12345'); // false
+// 	yield 'a b   c'.split(' '); // ['a', 'b', '', '', 'c']
+// 	yield 'a b   c'.split(/\s+/); // ['a', 'b', 'c']
+// 	yield 'a,b, c   d'.split(/[\s\,\;]+/); // ['a', 'b', 'c', 'd']
+// 	yield 'a,b;; c  d'.split(/[\s\,\;]+/); // ['a', 'b', 'c', 'd']
+// 	yield JSON.stringify(xiaoming); // '{"name":"小明","age":14,"gender":true,"height":1.65,"grade":null,"middle-school":"\"W3C\" Middle School","skills":["JavaScript","Java","Python","Lisp"]}'
+// 	yield JSON.stringify(xiaoming,null,' ');
+// }
+
+// for (var x of put()) {
+// 	console.log(x);
+// }
+
+
+// console.log('-------我是分割线--------');
+// var student = {
+// 	name: 'robot',
+// 	height: 1.65,
+// 	run: function(){
+// 		console.log(this.name + ' is running...');
+// 		return 'xxxxxxxxxxxxxx';
+// 	},
+// 	getheight: function(){
+// 		return this.height;
+// 	}
+// };
+
+// var xiaoming = {
+// 	name: 'little ming',
+// };
+
+// xiaoming.__proto__ = student; 
+
+// function teacher(name){
+// 	this.name = name;
+// 	this.speak = function(){
+// 		console.log('teacher '+ this.name + ' is speaking! please pay attention to it!');
+// 		return 'xxxxxxxxxxxxxx';
+// 	}
+// }
+
+// teacher.prototype.hello = function () {
+// 		console.log(this.name + ' say hello!!!');
+// 		return 'xxxxxxxxxxxxxx';
+// }
+
+// var chengchun = new teacher('程春');
+
+
+// function* puts(){	
+// 	yield xiaoming.name;
+// 	yield xiaoming.run();
+// 	yield xiaoming.__proto__;
+// 	yield chengchun.name;
+// 	yield chengchun.speak();
+// 	yield chengchun.hello();
+// }
+
+// for (var x of puts()) {
+// 	console.log(x);
+// }
+
+
+console.log('-------我是分割线--------');
+function change(obj){
+	obj.innerText = 'ABC <a href="http://www.baidu.com"><br>aaaa</a> <br>XYZ';
+}
+
+
+
+
+
+
+
+</script>
+
+</html>

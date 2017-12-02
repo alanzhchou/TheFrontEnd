@@ -1,0 +1,34 @@
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试cookie2</title>
+</head>
+<style>
+    #container{
+        width: 200px;
+        height: 150px;
+        background-color: palegreen;
+        margin: 20px auto;
+        padding: 20px;
+    }
+</style>
+
+<script>
+    window.onload = function(){
+        var test = document.getElementById("container");
+        var thisCookie = document.cookie;
+
+        if(thisCookie === "47464880"){
+            test.innerText = thisCookie;
+        }
+    }
+</script>
+
+<body>
+    <div id="container">
+        123
+    </div>
+</body>
+</html>
