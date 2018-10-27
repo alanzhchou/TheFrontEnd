@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>  
+    <title>bootstrap 徽章</title>
+</head>
+<body>
+    <h1> bootstrap 徽章 </h1>
+    <div class="container text-center">
+        <h2> 全部用于span元素 </h2>
+
+        <h3> 各种颜色的徽章 </h3>
+        <div class="row bg-light">
+            
+            <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <span class="badge badge-info"> info 徽章 </span>
+                <span class="badge badge-success"> success 徽章 </span>
+                <span class="badge badge-warning"> warning 徽章 </span>
+                <span class="badge badge-danger"> danger 徽章 </span>
+                <span class="badge badge-light"> light 徽章 </span>
+                <span class="badge badge-dark"> dark 徽章 </span>
+            </div>
+        </div>
+
+        <h3> 药丸形状的徽章 </h3>
+        <div class="row bg-light">
+            <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <span class="badge badge-info badge-pill"> 💊info徽章 </span>
+                <span class="badge badge-success badge-pill"> 💊success徽章 </span>
+                <span class="badge badge-warning badge-pill"> 💊warning徽章 </span>
+                <span class="badge badge-danger badge-pill"> 💊danger徽章 </span>
+            </div>
+        </div>
+
+        <h3> 嵌入按钮的徽章 </h3>
+        <div class="row bg-light">
+            <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <button class="btn btn-success">
+                    information
+                    <span class="badge badge-warning badge-pill"> 💊warning徽章 </span>
+                </button>
+            </div>
+        </div>
+
+        <h3> 下拉按钮 <br>
+            <strong>必须配合 bootstrap.js</strong>
+        </h3>
+        <div class="row bg-light">
+            <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary">Sony</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Tablet</a>
+                        <a class="dropdown-item" href="#">Smartphone</a>
+                    </div>
+                </div>     
+            </div>
+        </div>
+
+        <h3> 进度条 </h3>
+        <div class="row bg-light">
+            <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <div class="progress">
+                    <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width:40%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+}
+
+.row div{
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.progress{
+    height: 30px;
+}
+</style>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <title>栅格系统</title>
+</head>
+<body>
+    <h1>学习 bootstrap 的网格系统</h1>
+
+    <h3>1. container 固定长度的容器 <small>修改宽度:最大展示宽带为视口宽度,最小一般不做限制</small></h3>
+    <h4>container 和 container-fluid的区别是 <br>
+        container 在 不同设备下有最大宽度，当设置宽度超过最大宽度时,以最大支持宽度为准
+    </h4>
+    <h5>超小设备(<576px):auto <br>
+        平板(576px < x < 768px): 540px <br>
+        桌面级(768px < x < 992px): 720px <br>
+        大桌面(992px < x < 1200px): 992px <br>
+        超大桌面(>1200px): 1140px -- 电脑浏览器 <br>
+        <strong>如上的都为设备逻辑分辨率宽度，<br>
+            如手机~375px, 平板~768px, 电脑~1080px</strong>
+    </h5>
+    <div id="test_container" class="container">
+        <div class="row">
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                <h6>col-1</h6>
+            </div>
+            
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <h6>col-2</h6>
+            </div>
+            
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <h6>col-3</h6>
+            </div>
+            
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <h6>col-4</h6>
+            </div>
+
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <h6>col-2</h6>
+            </div>
+        </div>
+
+        <h3>混用用来在不同的视口下展现不同的占比</h3>
+        <div class="row">
+            <div class="col-md-3 col-lg-6">
+                <h6>col-md-3, col-lg-6</h6>
+            </div>
+            
+            <div class="col-md-9 col-lg-6">
+                <h6>col-md-9 col-lg-6</h6>
+            </div>
+        </div>
+
+        <h3>偏移列</h3>
+        <div class="row">
+            <div class="col-md-3 offset-md-3 col-lg-6 offset-lg-1">
+                <h6>col-md-3 offset-md-3 col-lg-6 offset-lg-1</h6>
+            </div>
+        </div>
+    </div>
+
+    <h1>-------------------------------------------</h1>
+    <h3>2. container-fluid 占据全屏宽度的容器</h3>
+    <div id="test_container" class="container-fluid">
+        <div class="row">
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                <h6>col-1</h6>
+            </div>
+            
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <h6>col-2</h6>
+            </div>
+            
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <h6>col-3</h6>
+            </div>
+            
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <h6>col-4</h6>
+            </div>
+
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <h6>col-2</h6>
+            </div>
+        </div>
+
+        <h3>混用用来在不同的视口下展现不同的占比</h3>
+        <div class="row">
+            <div class="col-md-3 col-lg-6">
+                <h6>col-md-3, col-lg-6</h6>
+            </div>
+            
+            <div class="col-md-9 col-lg-6">
+                <h6>col-md-9 col-lg-6</h6>
+            </div>
+        </div>
+
+        <h3>偏移列</h3>
+        <div class="row">
+            <div class="col-md-3 offset-md-3 col-lg-6 offset-lg-1">
+                <h6>col-md-3 offset-md-3 col-lg-6 offset-lg-1</h6>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+}
+
+.row div{
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.row h6{
+    line-height: 1.5;
+    background-color: aquamarine;
+}
+</style>
+
+</html>

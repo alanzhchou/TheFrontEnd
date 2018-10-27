@@ -1,0 +1,71 @@
+@charset "utf-8";
+@import "reset.css";
+/*可以保留的注释*/
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: aqua;
+  border: solid 5px greenyellow;
+}
+.border {
+  border: solid 5px greenyellow;
+}
+.box2 {
+  width: 300px;
+  height: 300px;
+  background-color: aqua;
+  border: solid 5px greenyellow;
+  margin-left: 100px;
+  border: solid 10px yellowgreen;
+}
+.box3 {
+  width: 300px;
+  height: 300px;
+  background-color: aqua;
+  border: solid 5px greenyellow;
+  border: solid 10px black;
+}
+.radius_test {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.sanjiao {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-width: 10px;
+  border-color: red transparent transparent transparent;
+  border-style: solid dashed dashed dashed;
+}
+.sanjiao {
+  border-width: 5px;
+  border-color: red transparent transparent transparent;
+  border-style: solid dashed dashed dashed;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.match {
+  width: 300px;
+  height: 300px;
+  background-color: black;
+  position: relative;
+}
+.cal {
+  width: 350px;
+  height: 250px;
+  background-color: #9b0000;
+}
+.test_arguments {
+  border: 30px yellow solid;
+}
+.test_complie {
+  width: calc(300px-30);
+}
+.test_important {
+  border: solid 10px black !important;
+}

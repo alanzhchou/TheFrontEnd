@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>  
+    <title> bootstrap 输入框组 </title>
+</head>
+<body>
+    <h1> bootstrap 输入框组 </h1>
+    <div class="container text-center bg-light">
+        <div class="row">
+            <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <h3>
+                    在 form 下， 作为容器的 div 设置 .input-group 添加更多的样式  <br>
+                    .input-group-prepend 在 输入框之前显示 <br>
+                    .input-group-apend 在 输入框之后显示（都为容器 div 设置） <br>
+                    用 input-group-text 设置文本 <br>
+                </h3>
+                <form action="#">
+                    <div class="input-group">
+                        <div class="input-group-prepend"> 
+                            <span class="input-group-text"> 用户名(前面的文本) </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="User">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="mail">
+                        <div class="input-group-append"> 
+                            <span class="input-group-text"> @sustc.edu.cn </span>
+                        </div>
+                    </div>
+                </form>
+
+                <h3><br>
+                    多个前置文本 和 多个输入 <br>
+                </h3>
+                <form action="#">
+                    <div class="input-group">
+                        <div class="input-group-prepend"> 
+                            <span class="input-group-text"> 用户名(前面的文本)1 </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="User">
+                        <input type="text" class="form-control" placeholder="password">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="mail">
+                        <div class="input-group-append"> 
+                            <span class="input-group-text"> @sustc.cn </span>
+                        </div>
+                        <div class="input-group-append"> 
+                            <span class="input-group-text"> .edu </span>
+                        </div>
+                        <div class="input-group-append"> 
+                            <span class="input-group-text"> .cn </span>
+                        </div>
+                    </div>
+                </form>
+
+                <h3><br>
+                    与选项框复合, 用 .input-group-text 做容器 <br>
+                </h3>
+                <form action="#">
+                    <div class="input-group">
+                        <div class="input-group-prepend"> 
+                            <span class="input-group-text">
+                                Remember Me
+                            </span>
+                        </div>
+                        <div class="input-group-prepend"> 
+                            <div class="input-group-text">
+                                <input type="checkbox" name="check" id="check">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="User">
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="mail">
+                        <div class="input-group-append"> 
+                            <span class="input-group-text"> Student </span>
+                        </div>
+                        <div class="input-group-append"> 
+                            <div class="input-group-text">
+                                <input type="radio" name="radio">
+                            </div>
+                        </div>
+                        <div class="input-group-append"> 
+                            <span class="input-group-text"> Teacher </span>
+                        </div>
+                        <div class="input-group-append"> 
+                            <div class="input-group-text">
+                                <input type="radio" name="radio">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+
+                <h3><br>
+                    下拉菜单 <br>
+                </h3>
+                <form action="#">
+                    <div class="input-group">
+                        <div class="input-group-prepend"> 
+                            <button id="search_btn" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown">
+                                搜索引擎
+                            </button>
+                            <div class="dropdown-menu" id="search_select">
+                                <li class="dropdown-item"> Google </li>
+                                <li class="dropdown-item"> Baidu </li>
+                                <li class="dropdown-item"> Bing </li>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="搜索内容">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+var search_btn = document.querySelector("#search_btn");
+var select_lis = search_select.querySelectorAll("#search_select li");
+
+select_lis.forEach(element => {
+    element.onclick = function(){
+        search_btn.innerText = this.innerText;
+    }
+});
+
+</script>
+
+<style>
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+}
+
+.row>div{
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.form-group label{
+    text-align: left;
+}
+</style>
+</html>

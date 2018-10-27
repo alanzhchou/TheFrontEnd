@@ -1,0 +1,171 @@
+@charset "utf-8";
+@import "reset.less";
+
+//此种导入 在生成的css 中也为 @importand
+@import "reset.css";
+
+//此种导入 直接编译到该 less 生成的css文件中
+@import (less) "reset.css";
+
+/*可以保留的注释*/
+//不可保留的注释
+
+//变量
+@test_width: 300px;
+
+.box{
+    width: @test_width;
+    height: @test_width;
+    background-color: aqua;
+
+    .border
+}
+
+//混合 mixin
+.border{
+    border: solid 5px greenyellow;
+}
+
+//混合 可带参数
+.border_02(@border_width){
+    border: solid @border_width yellowgreen;
+}
+
+.box2{
+    .box;
+    margin-left: 100px;
+    .border_02(10px)
+}
+
+//混合 默认带值
+.border_03(@border_width:10px){
+    border: solid @border_width black;
+}
+
+.box3{
+    .box;
+    .border_03();
+}
+
+//混合使用： 浏览器兼容
+.border_radius(@radius:10px){
+    -webkit-border-radius:@radius;
+    -moz-border-radius:@radius;
+    border-radius:@radius;
+}
+
+.radius_test{
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+
+    .border_radius;
+}
+
+//画三角
+.sanjiao{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+
+    border-width: 10px;
+    border-color: red transparent transparent transparent;
+    //兼容 ie6
+    border-style: solid dashed dashed dashed;
+}
+
+//匹配模式
+.triangle(top, @w:5px, @c:red){
+    border-width: @w;
+    border-color: @c transparent transparent transparent;
+    //兼容 ie6
+    border-style: solid dashed dashed dashed;
+}
+.triangle(bottom, @w:5px, @c:red){
+    border-width: @w;
+    border-color: transparent transparent @c transparent;
+    //兼容 ie6
+    border-style: solid dashed dashed dashed;
+}
+.triangle(left, @w:5px, @c:red){
+    border-width: @w;
+    border-color: transparent transparent transparent @c;
+    //兼容 ie6
+    border-style: solid dashed dashed dashed;
+}
+.triangle(right, @w:5px, @c:red){
+    border-width: @w;
+    border-color: transparent @c transparent transparent;
+    //兼容 ie6
+    border-style: solid dashed dashed dashed;
+}
+
+.triangle(@_,@w:5px, @c:red){
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.sanjiao{
+    .triangle(top);
+}
+
+
+//匹配模式 - 定位
+.pos(r){
+    position: relative;
+}
+.pos(a){
+    position: absolute;
+}
+.pos(f){
+    position: fixed;
+}
+
+.match{
+    width: @test_width;
+    height: @test_width;
+    background-color: black;
+
+    .pos(r);
+}
+
+
+// less运算
+@test_01:300px;
+.cal{
+    width: @test_01 + 50;
+    height: @test_01 - 50;
+
+    background-color: red - 100;
+}
+
+
+// arguments 变量
+// 代表全部的变量值
+.border_arg(@w:30px,@c:yellow,@style:solid){
+    border: @arguments;
+}
+
+.test_arguments{
+    .border_arg(30px);
+}
+
+
+// 避免编译
+
+.test_complie{
+    width: ~'calc(300px-30)';
+}
+
+
+// !important 关键字
+// 样式 层级 优先级
+.test_important{
+    .border_03() !important;
+}
+
+// less 导入
+
+
+

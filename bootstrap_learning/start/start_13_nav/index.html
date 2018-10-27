@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>  
+    <title> bootstrap 导航 </title>
+</head>
+<body>
+    <h1> bootstrap 导航--nav </h1>
+    <div class="container text-center bg-light">
+        <div class="row">
+            <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <h3> 用 .nav 修饰导航  <br>
+                    下属 .nav-item <br>
+                            .nav-link <br>
+                </h3>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">导航链接1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">导航链接2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">导航链接3</a>
+                    </li>
+                </ul>
+            </div>
+            
+
+            <div class="text-left col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <h3> .flex-column 设置垂直导航 <br>
+                     .nav-tabs 将导航设置成选项卡，通过设置 <br>
+                     .nav-link 为 .active 来激活这个选项卡
+                     .nav-pills 设置 带颜色的胶囊 
+                </h3>
+                <ul class="nav nav-tabs nav-pills flex-column">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">导航链接1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">导航链接2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">导航链接3</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-left col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <h3> .nav-link 上设置 data-toggle="tab" 设置动态的选项卡 <br>
+                     对应的 href 中附上选择器
+                     展示的内容 
+                        设置容器为 .tab-content
+                        设置对应展示为 .tab-pane 可设置active为默认展开显示
+                </h3>
+                <ul class="nav nav-tabs nav-pills" role="tablist">
+                    <li class="nav-item">
+                        <a href="#pane1" class="nav-link active" data-toggle="tab">导航链接1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pane2" class="nav-link" data-toggle="tab">导航链接2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pane3" class="nav-link" data-toggle="tab">导航链接3</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="pane1">
+                        <h3> 第一个动态选项卡 </h3>
+                    </div>
+
+                    <div class="tab-pane" id="pane2">
+                        <h3> 第二个动态选项卡 </h3>
+                    </div>
+
+                    <div class="tab-pane" id="pane3">
+                        <h3> 第三个动态选项卡 </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+}
+
+.row div{
+    padding: 5px;
+    border: 2px solid black;
+}
+</style>
+</html>

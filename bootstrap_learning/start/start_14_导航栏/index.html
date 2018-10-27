@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>  
+    <title> bootstrap 导航栏 </title>
+</head>
+<body>
+    <h1 style="margin-top:60px;"> bootstrap 导航栏 </h1>
+    <div class="container text-center bg-light">
+        <div class="row">
+            <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <h3> .navbar 创建一个标准的导航栏 <br>
+                     .nav-expand-xl|lg|md|sm 成为响应式的导航栏 <br>
+                        (小于该值会成垂直堆叠)  <br>
+                    .navbar-nav 修饰 ul 创建导航栏中的导航  <br>
+                    .nav-item   .nav-link 等  <br>
+                    .navbar-brand 修饰品牌logo 
+                </h3>
+                
+                <nav class="navbar navbar-expand-sm bg-light">
+                    <a href="#" class="navbar-brand">
+                        <img src="http://static.runoob.com/images/mix/img_avatar.png" alt="logo">
+                    </a>
+
+                    <ul class="navbar-nav nav-tabs nav-pills">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                选项1
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                选项2
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                选项3
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <h3> 折叠式导航栏 <br>
+                     .navbar-toggler 配合data-toggle="collapse" data-target="CSS选择器" <br>
+                     折叠按钮内 span.nav-bar-toggler-icon 显示一个折叠的icon <br>
+                     折叠目标设置 .navbar-collapse
+
+                     设置了 .navbar-expand- 的只有在小于对应大小时才会成为折叠按钮 不设置的话则一直保持
+                    </h3>
+                
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">
+                        <img src="http://static.runoob.com/images/mix/img_avatar.png" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse-content">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="collapse-content">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                            </li>    
+                        </ul>
+                        <form action="#" class="form-inline">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <button class="btn btn-success">Search</button>
+                        </form>
+                    </div>  
+                </nav>
+            </div>
+
+            <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <h3> 固定式导航栏 <br>
+                    .fixed-top / .fixed-bottom 实现固定位置
+                </h3>
+                
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+                    <a href="#" class="navbar-brand">
+                        <img src="http://static.runoob.com/images/mix/img_avatar.png" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse-content1">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="collapse-content1">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                            </li>    
+                        </ul>
+                        <form action="#" class="form-inline">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <button class="btn btn-success">Search</button>
+                        </form>
+                    </div>  
+                </nav>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+}
+
+.row>div{
+    padding: 5px;
+    border: 2px solid black;
+}
+
+nav {
+    border: 2px solid lightblue;
+}
+
+.navbar-brand img{
+    width: 30px;
+    margin-right: 10px;
+}
+
+.fixed-top{
+    opacity: 0.95;
+}
+</style>
+</html>

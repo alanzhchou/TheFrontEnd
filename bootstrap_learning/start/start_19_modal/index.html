@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>  
+    <title> Bootstrap 模态框 </title>
+</head>
+<body>
+    <h1>
+        bootstrap 模态框
+    </h1>
+    <div class="container bg-light">
+        <div class="row">
+            <h3>
+                模态框 组成: <br>
+                1. 模态框开启按钮 <br> 
+                指定 data-toggle="modal" data-target 为选择modal对象 <br><br>
+
+                2. 模态框 <br>
+                .modal.fade 指定 动画模态 最外层（暗色）容器 <br>
+                .modal-dialog 指定 模态对话框 容器 <br>
+                .modal-centent 指定 模态内容框 容器 <br>
+                分为 <br>
+                ---1 modal-header 头部（放置标题， 关闭按钮等）<br>
+                ---2 modal-body 主体（放置模态的主体内容） <br>
+                ---3 modal-footer 底部（放置提示，关闭按钮等）
+            </h3>
+            <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <button class="btn btn-info" data-toggle="modal" data-target="#modal_demo">
+                    测试模态框
+                </button>
+
+                <div class="modal fade" id="modal_demo">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"> 测试模态框 - 模态框头部 </h5>
+                                <button class="close" data-dismiss="modal">&times;</button>
+                            </div>
+    
+                            <div class="modal-body text-center">
+                                <form action="#">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label for="username" class="input-group-text">用户名 </label>
+                                        </div>
+                                        <input class="form-control" type="text" name="username"" id="username" placeholder="User Name">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label for="password" class="input-group-text">密码</label> 
+                                        </div>
+                                        <input class="form-control" type="password" name="password"" id="password" placeholder="password">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label for="repeat_password" class="input-group-text">重复密码</label>
+                                        </div>  
+                                        <input class="form-control" type="password" name="repeat_password"" id="repeat_password" placeholder="repeat password">
+                                    </div>
+                                    <div class="form-check text-right">
+                                        <label for="check" class="form-check-label">
+                                            <input type="checkbox" id="check" class="form-check-input">
+                                            Remember Me
+                                        </label>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-outline-info">确认</button>
+                                </form>
+                            </div>
+    
+                            <div class="modal-footer">
+                                <button class="btn btn-dark" data-dismiss="modal"> 关闭 </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+}
+
+.row>div{
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.input-group{
+    margin-top: 20px;
+}
+
+.input-group-prepend{
+    width: 25%;
+}
+
+.input-group-text{
+    width: 100%;
+}
+
+
+</style>
+</html>

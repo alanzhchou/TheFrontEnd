@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>  
+    <title> Bootstrap 轮播图 </title>
+</head>
+<body>
+    <h1>
+        bootstrap 轮播图
+    </h1>
+    <div class="container bg-light">
+        <h3>
+            bootstrap 轮播分为三个部分： <br>
+            1.  位于下方的指示符，       <br>
+                提示是第几副图片为激活状态 <br>
+            2.  轮播图片的主体部分       <br>
+            3.  左右切换的按钮           <br><br>
+
+            <strong>-------------------</strong> <br>
+            .carousel.slide 标记轮播图容器 data-ride="carousel" <br><br>
+                .carousel-indicators 标记指示符列表 <br>
+                <pre>内部用li指向对应的轮播图
+        data-target 指定图片
+        data-slide-to 指定滑向第几个li
+                </pre>  <br>
+
+                .carousel-inner 标记轮播图主体图片容器 <br>
+                <pre>内部用div.carousel-item 标记图片容器
+            其中可放 a>img
+            其中 div.carousel-caption 设置图片的描述
+                </pre>  <br>
+
+                a.carousel-control-prev 标记 左右滑动指示icon <br>
+                href指向 整体容器 data-slide="prev" 或者 "next" <br>
+                内部包含一个 span.carousel-control-prev-icon <br>
+                或span.carousel-control-next-icon
+        </h3>
+        
+        <div class="row">
+            <div class="col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                <div id="carousel_demo" class="carousel slide" data-ride="carousel">
+                    <ul class="carousel-indicators">
+                        <li data-target="#carousel_demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel_demo" data-slide-to="1"></li>
+                        <li data-target="#carousel_demo" data-slide-to="2"></li>
+                    </ul>
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="0.jpg" target="_blank">
+                                <img src="0.jpg" alt="">
+                            </a>
+                            <div class="carousel-caption">
+                                <h5> 荒野 </h5>
+                                <p> 荒野中的鹰 与 骨架 </p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="1.jpg" target="_blank">
+                                <img src="1.jpg" alt="">
+                            </a>
+                            <div class="carousel-caption">
+                                <h5> 三角龙 </h5>
+                                <p> 食草性三角龙，背景为雪山 </p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="2.jpg" target="_blank">
+                                <img src="2.jpg" alt="">
+                            </a>
+                            <div class="carousel-caption">
+                                <h5> 绿野 </h5>
+                                <p> 绿野，黑夜，静谧，沉思 </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#carousel_demo" class="carousel-control-prev" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a href="#carousel_demo" class="carousel-control-next" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+}
+
+.row>div{
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+</style>
+</html>
