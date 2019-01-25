@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vue Learn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style/main.css" />
+    <script src="js/vue2-5.js"></script>
+</head>
+<body>
+    <div id="test">
+        name: <input type="text" placeholder="input for name" v-bind:value="name" @change="change_name" ref="name_input"> <br>
+        age: <input type="number" step="1" placeholder="input for age" v-bind:value="age" @change="change_age" ref="age_input"> <br>
+        logName: <input type="text" @keyup.enter="logName"> <br>
+        logAge: <input type="text" @keyup.enter="logAge"> <br>
+        <button @click="add_age(1)">加一岁</button>
+        <button @click="sub_age(1)">减一岁</button>
+        <button @dblclick="add_age(10)">加一岁</button>
+        <button @dblclick="sub_age(10)">减一岁</button>
+        <h2> {{ hello() }} </h2>
+        <p v-if="condition">
+            {{ name }} <br>
+            {{ age }}
+        </p>
+        <ul>
+            <li v-for="(todo_item, index) in todo_list" :key="index">
+                {{ todo_item.text }}
+            </li>
+        </ul>
+        <a v-bind:href="website" target="_blank">我的github</a>
+        <p v-html="website_tag"></p>
+        <div id="canvas" @mousemove.self="updateXY">
+            <h3>canvas.X: {{ canvas.X }}</h3>    
+            <h3>canvas.Y: {{ canvas.Y }}</h3>    
+        </div>
+        <a @click.prevent="alertNew" href="https://github.com/alanzhchou">
+            我的github首页
+        </a>
+
+        <div id="divScroll" @scroll="updateScrollXY">
+            <h3>scrollHeight: {{ scroll.scrollHeight }}</h3>    
+            <h3>scrollTop: {{ scroll.scrollTop }}</h3>   
+            <h3>111111</h3>
+            <h3>111111</h3>
+        </div>
+    </div>
+</body>
+<script src="js/index.js"></script>
+</html>

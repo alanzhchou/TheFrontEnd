@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+#first{
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+    background: url(http://owzbe53ov.bkt.clouddn.com/13%20-%20%E5%89%AF%E6%9C%AC.jpg
+    ) center no-repeat;
+    background-size: 80%;
+}
+
+#first.changed{
+    background-image: url(http://owzbe53ov.bkt.clouddn.com/15_%E4%B9%A6%E5%90%A7%E4%B8%8B%E5%8D%88%E8%8C%B6.jpg
+    );
+}
+
+#health{
+    width: 200px;
+    border: 2px solid black;
+    margin: 0 auto 20px auto; 
+}
+
+#health div{
+    height: 10px;
+    background: crimson;
+}
+
+#controls{
+    width: 200px;
+    margin: 0 auto;
+}
+
+#controls button{
+    margin-left: 30px;
+}

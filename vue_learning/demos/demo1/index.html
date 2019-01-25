@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo1</title>
+    <link rel="stylesheet" href="style/index.css">
+    <script src="js/vue2-5.js"></script>
+</head>
+<body>
+    <div id="demo1">
+        <!-- 图片 -->
+        <div id="first" v-bind:class="{changed: ended}">
+
+        </div>
+
+        <!-- 进度情况 -->
+        <div id="health">
+            <div v-bind:style="{width: health + '%'}"></div>
+        </div>
+
+        <!-- 控制按钮 -->
+        <div id="controls">
+            <button @click="change" v-show="!ended">变</button>
+            <button @click="restart">重新开始</button>
+        </div>
+    </div>
+</body>
+<script src="js/index.js"></script>
+</html>

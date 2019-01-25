@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue learning</title>
+    <script src="js/vue2-5.js"></script>
+</head>
+<body>
+    <div id="vif">
+        <h1> v-if 条件</h1>
+        <button @click="error = !error"> Toggle Error </button>
+        <button @click="success = !success"> Toggle Success </button>
+        <p v-if="error">网络连接错误 404</p>
+        <p v-else-if="success">网络连接成功 200</p>
+    </div>
+    
+    <div id="vfor">
+        <h1> v-for 循环 </h1>
+        <ul>
+            <li v-for="(name, index) in names" :key="index">
+                {{ name }}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(user, index) in users" :key="index">
+                {{ user.name }} - {{ user.age }} 
+            </li>
+        </ul>
+        <template v-for="(user, index) in users" :key="index">
+            <h3> {{ index+1 }} . {{ user.name }} </h3>
+            <p> age - {{ user.age }}</p>
+        </template>
+    </div>
+</body>
+<script src="js/index4.js"></script>
+</html>

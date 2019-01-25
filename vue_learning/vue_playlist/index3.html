@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Learning</title>
+    <link rel="stylesheet" href="style/dyStyle.css">
+    <script src="js/vue2-5.js"></script>
+</head>
+<body>
+    <div id="vueApp">
+        <h1> 动态绑定 CSS class</h1>
+
+        <h2> 实例1 </h2>
+        <div  v-bind:class="{changeColor:changeColor}" @click="changeColor = !changeColor">
+            <span>Alan</span>
+        </div>
+
+        <h2> 实例2 </h2>
+        <button @click="changeColor = !changeColor">changeColor</button>
+        <button @click="changeLength = !changeLength">changeLength</button>
+        <div  v-bind:class="compClasses">
+            <span>Chou</span>
+        </div>
+    </div>
+</body>
+<script src="js/index3.js"></script>
+</html>

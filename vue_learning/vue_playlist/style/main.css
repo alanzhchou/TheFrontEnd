@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+#canvas{
+    width: 600px;
+    padding: 50px 20px;
+    border: 1px solid black;
+}
+
+#divScroll{
+    width: 600px;
+    height: 100px;
+    padding: 20px;
+    overflow: auto;
+    border: 1px solid black;
+}
